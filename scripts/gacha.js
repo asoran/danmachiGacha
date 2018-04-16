@@ -27,7 +27,7 @@ function invoke(btn, nb){
 
 		if(ch < 0.03){
 			star = 4;
-		}else if(ch < 0.1){
+		}else if(ch < 0.25){
 			star = 3;
 		}else{
 			star = 2;
