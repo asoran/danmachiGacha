@@ -36,8 +36,10 @@ function pull(btn, x){
 function multi(btn){
 	btn.disabled = true;
 	vid = (Math.random() >= 0.5 ? vid3 : vid4);
+	vid.style.display="flex";
 	vid.play();
 	vid.onended = function(){
+		vid.style.display="none";
 		pull(btn, 10);
 		vid.onended = undefined;
 		vid.currentTime = 0;

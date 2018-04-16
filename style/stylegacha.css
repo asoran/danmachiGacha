@@ -4,28 +4,39 @@ html{
 	background-size:100% 100%;
 	height:100%;
 }
+body{
+margin:0 0 0 0;
+height:100%;
+width:100%;
+}
 button{
-display:none;
+	display:none;
 }
 button#single{
+	display:flex;
+	position:absolute;
 	background: transparent;
     border: none;
     font-size:0;
-	display:inline-block;
-	margin-left:38%;
-	margin-top:45%;
-	padding-bottom:10%;
-	padding-left:20%;
+	top:75%;
+	width:18%;
+	height:13%;
+	left:41%;
 }
 button#multi{
+	display:flex;
 	background: transparent;
-    border: none;
+	position:absolute;
+	border: none;
     font-size:0;
-	display:inline-block;
-	margin-top:45%;
-	padding-bottom:10%;
-	padding-left:20%;
+	top:75%;
+	width:18%;
+	height:13%;
+	left:61.5%;
 }
 video{
 display:none;
+width:100%;
+height:100%;
+position:absolute;
 }
