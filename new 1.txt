@@ -1,0 +1,50 @@
+var Ais_Sparkle={
+    nom: "[Sparkle Princess]Ais Wallenstein",
+    et: 4,
+    chance: 0.01
+}
+var Lefiya_Awake={
+	nom: "[Elven Awakening]Lefiya Viridis",
+    et: 4,
+    chance: 0.01
+}
+var Raul_Novice={
+	nom: "[High Novice]Raul Nord",
+    et: 3,
+    chance: 0.128
+}
+var Mord_Dog={
+	nom: "[Dogfight]Mord Latro",
+    et: 3,
+    chance: 0.032
+}
+var Tione_Back={
+	nom: "[Backdraft]Tione Hiryute",
+    et: 3,
+    chance: 0.032
+}
+var Kashima_Solid={
+	nom: "[Solid Resolutions]Kashima Ouka",
+    et: 3,
+    chance: 0.032
+}
+var Lefiya_Thousand={
+	nom: "[Thousand Elf]Lefiya Viridis",
+    et: 3,
+    chance: 0.032
+}
+var Ais_Sword={
+	nom: "[Sword Princess]Ais Wallenstein",
+    et: 3,
+    chance: 0.032
+}
+var Asfi_Combat={
+	nom: "[Combat Commander]Asfi Al Andromeda",
+    et: 3,
+    chance: 0.032
+}
+var Welf_Ignis={
+	nom: "[Ignis]Welf Crozzo",
+    et: 3,
+    chance: 0.032
+}
