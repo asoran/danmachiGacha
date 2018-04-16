@@ -1,108 +1,34 @@
 <html>
 	<head>
+	<link href="./style/stylegacha.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		
-		
-		<button onClick="playSound(4)">JOUER SON 4star</button>
-		<button onClick="playSound(3)">JOUER SON 3star</button>
-		<button onClick="playSound(2)">JOUER SON 2star</button>
-		
-		<button onClick="pull(this, 1);">Pull</button>
-		<button onClick="multi(this);">Multi</button>
-		<div id="j">
-			.
-			
-		</div>
-		<fieldset>
-			<div id="k">
-				.
-			</div>
-		</fieldset>
-		
+
+		<button id="single" class="invoke" onClick="invoke(this, 1);"></button>
+		<button id="multi" class="invoke" onClick="invoke(this, 11);"></button>
+
 		<video id="gate4" width="320" height="176">
   			<source src="4stargate.mp4" type="video/mp4">
 		</video>
 		<video id="gate3" width="320" height="176">
   			<source src="3stargate.mp4" type="video/mp4">
 		</video>
-		
+		<video id="gate2" width="320" height="176">
+  			<source src="2stargate.mp4" type="video/mp4">
+		</video>
+		<video id="trait2" width="320" height="176">
+			<source src="trait2.mp4" type="video/mp4">
+		</video>
+		<video id="trait3" width="320" height="176">
+			<source src="trait3.mp4" type="video/mp4">
+		</video>
+		<video id="trait4" width="320" height="176">
+  			<source src="trait4.mp4" type="video/mp4">
+		</video>
+
+		<span id="iris"></span>
+
 	</body>
-	<script>
-		var vid3 = document.getElementById("gate3");
-		var vid4 = document.getElementById("gate4");
-
-		function write(text){
-			document.getElementById('j').innerHTML = text;
-		}
-		function writeP(text){
-			document.getElementById('k').innerHTML += text + "<br/>";
-		}
-		
-	
-		var persos = ["Arnya Fromel", "Ais Vallenmerde", "Altan kami sama", "Fels healer de merde", "Hestia bigboobs", "golden gui"];
-	
-		function pull(btn, x){
-			btn.disabled = true;
-			var ch = Math.random();
-			console.info(ch);
-			var star = 2;
-			
-			if(ch < 0.25){
-				star = 4;
-			}else if(ch < 0.5){
-				star = 3;
-			}
-			
-			write(star + ' star incoming...');
-			playTrait(1);
-			playSound(star).onended = function(){
-			
-				var p = star + 'star ' + persos[Math.floor(Math.random() * persos.length)];
-				write(p);
-				writeP(p);
-			
-				if(x <= 1) btn.disabled = false;
-				
-				setTimeout(function(){if(--x > 0) pull(btn, x)}, 1000);
-			}
-			
-		}
-		
-		function multi(btn){
-			btn.disabled = true;
-			vid = (Math.random() >= 0.5 ? vid3 : vid4);
-			
-			vid.play();
-			vid.onended = function(){
-				pull(btn, 10);
-				vid.onended = undefined;
-				vid.currentTime = 0;
-			};
-			
-		}
-		
-		function playSound(star){
-			let son = new Audio(star + 'star.mp3');
-			//son.onended = function(){ playSound(2) };
-			son.volume = 0.5;
-			son.play();
-			return son;
-		}
-	
-		function playTrait(_){
-			let son = new Audio('trait' + (_ == 1 ? '' : 2) + '.mp3');
-			son.volume = 0.5;
-			son.play();
-			return son;
-		}
-	
-	
-	
-	
-	
-	</script>
+	<script src="./img/data.js"></script>
+	<script src="./scripts/gacha.js"></script>
 </html>
-
-
-
