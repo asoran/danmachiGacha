@@ -3,23 +3,26 @@
 	<link href="./style/stylegacha.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		
-		
+
+
 		<button onClick="playSound(4)">JOUER SON 4star</button>
 		<button onClick="playSound(3)">JOUER SON 3star</button>
 		<button onClick="playSound(2)">JOUER SON 2star</button>
-		<button id="single"onClick="pull(this, 1);"></button>
-		<button id="multi" onClick="multi(this);"></button>
+
+		<button id="single"onClick="invoke(this, 1);"></button>
+		<button id="multi" onClick="invoke(this, 10);"></button>
+
 		<video id="gate4" width="320" height="176">
   			<source src="4stargate.mp4" type="video/mp4">
 		</video>
 		<video id="gate3" width="320" height="176">
   			<source src="3stargate.mp4" type="video/mp4">
 		</video>
-		
+		<video id="gate2" width="320" height="176">
+  			<source src="2stargate.mp4" type="video/mp4">
+		</video>
+
 	</body>
+	<script src="./img/data.js"></script>
 	<script src="./scripts/gacha.js"></script>
 </html>
-
-
-

@@ -1,52 +1,64 @@
+var vid2 = document.getElementById("gate2");
 var vid3 = document.getElementById("gate3");
 var vid4 = document.getElementById("gate4");
 
-function write(text){
-	console.log(text);
-	//document.getElementById('j').innerHTML = text;
-}
-function writeP(text){
-	console.log(text);
-	//document.getElementById('k').innerHTML += text + "<br/>";
-}
-			
 var persos = ["Arnya Fromel", "Ais Vallenmerde", "Altan kami sama", "Fels healer de merde", "Hestia bigboobs", "golden gui"];
-	
-function pull(btn, x){
-	btn.disabled = true;
-	var ch = Math.random();
-	console.info(ch);
-	var star = 2;
-	if(ch < 0.25){
-		star = 4;
-	}else if(ch < 0.5){
-		star = 3;
-	}			
-	write(star + ' star incoming...');
-	playTrait(1);
-	playSound(star).onended = function(){
-		var p = star + 'star ' + persos[Math.floor(Math.random() * persos.length)];
-		write(p);
-		writeP(p);
-		if(x <= 1) btn.disabled = false;
-		setTimeout(function(){if(--x > 0) pull(btn, x)}, 1000);
-	}
+var all4 = [Hitachi_Fushi, Ouka_Iron, Freya_Beauty, Ais_Sparkle, Lefiya_Awake];
+var all3 = [Raul_Novice, Mord_Dog, Tione_Back, Kashima_Solid, Lefiya_Thousand, Ais_Sword, Asfi_Combat, Welf_Ignis];
+var all2 = [Lili_Sup];
+
+function pull(et){
+	let p;
+	eval('p = all' + et);
+	let pp = p[Math.floor(Math.random() * p.length)];
+	console.log(pp);
+	return pp;
 }
-		
-function multi(btn){
+
+function invoke(btn, nb){
 	btn.disabled = true;
-	vid = (Math.random() >= 0.5 ? vid3 : vid4);
-	vid.style.display="flex";
+	var max = 2;
+	var p = [];
+
+	for(i = 0; i < nb; ++i){
+		let ch = Math.random();
+		console.log(ch);
+		let star;
+
+		if(ch < 0.03){
+			star = 4;
+		}else if(ch < 0.1){
+			star = 3;
+		}else{
+			star = 2;
+		}
+
+		let pp = pull(star);
+		if (pp.et > max) max = pp.et;
+		p.push(pp);
+	}
+
+	vid = eval('vid' + max);
+	vid.style.display = 'flex';
 	vid.play();
+
 	vid.onended = function(){
-		vid.style.display="none";
-		pull(btn, 10);
+		vid.style.display = 'none';
+
 		vid.onended = undefined;
 		vid.currentTime = 0;
+
+		btn.disabled = false;
+		display(p);
 	};
-			
+
 }
-		
+
+function display(){
+	// Faire pop les persos 1 par 1
+}
+
+
 function playSound(star){
 	let son = new Audio(star + 'star.mp3');
 	//son.onended = function(){ playSound(2) };
@@ -54,11 +66,10 @@ function playSound(star){
 	son.play();
 	return son;
 }
-	
+
 function playTrait(_){
 	let son = new Audio('trait' + (_ == 1 ? '' : 2) + '.mp3');
 	son.volume = 0.5;
 	son.play();
 	return son;
 }
-	
