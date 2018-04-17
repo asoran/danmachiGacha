@@ -4,13 +4,8 @@
 	</head>
 	<body>
 
-
-		<button onClick="playSound(4)">JOUER SON 4star</button>
-		<button onClick="playSound(3)">JOUER SON 3star</button>
-		<button onClick="playSound(2)">JOUER SON 2star</button>
-
 		<button id="single" class="invoke" onClick="invoke(this, 1);"></button>
-		<button id="multi" class="invoke" onClick="invoke(this, 10);"></button>
+		<button id="multi" class="invoke" onClick="invoke(this, 11);"></button>
 
 		<video id="gate4" width="320" height="176">
   			<source src="4stargate.mp4" type="video/mp4">
@@ -21,6 +16,17 @@
 		<video id="gate2" width="320" height="176">
   			<source src="2stargate.mp4" type="video/mp4">
 		</video>
+		<video id="trait2" width="320" height="176">
+			<source src="trait2.mp4" type="video/mp4">
+		</video>
+		<video id="trait3" width="320" height="176">
+			<source src="trait3.mp4" type="video/mp4">
+		</video>
+		<video id="trait4" width="320" height="176">
+  			<source src="trait4.mp4" type="video/mp4">
+		</video>
+
+		<span id="iris"></span>
 
 	</body>
 	<script src="./img/data.js"></script>
