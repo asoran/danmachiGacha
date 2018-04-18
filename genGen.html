@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<script>
+			function format(t){
+				var tot = "";
+				t.split('$').forEach(function(e, i){
+					tot += (i%2 == 0 ? "'" + e + "'" : " + " + e + " + ");
+				});
+				return tot;
+			}
+
+			function cree(){
+				var vars = [];
+				var desc = [];
+				let ch = document.getElementById('champs').children;
+				for(i = 0; i < ch.length; ++i){
+					if(i % 4 == 0)
+						vars.push(ch.item(i).value);
+					else if(i % 2 == 0)
+						desc.push(ch.item(i).value);
+				};
+
+				var html = '<html><head><script>';
+
+				html += 'function gen(){';
+					vars.forEach(function(e, i){
+						html += 'var ' + e + ' = document.getElementById("' + e + '").value;';
+					});
+
+				html += 'document.getElementById("obj").innerHTML += '
+						+ format(document.getElementById('format').value)
+						+ '}';
+
+				html += "</" + "script></head><body>";
+				html += '<form onsubmit="gen();">';
+						vars.forEach(function(e, i){
+							html += desc[i] + '<input type="text" id="' + e + '"><br>';
+						});
+				html += 	  '<button type="button" onClick="gen();">Generate</button>'
+							+ '</form>'
+								+ '<br>'
+							+ '<div id="obj"></div>'
+						+ '</body>'
+						+ '</html>';
+
+				document.getElementById('gen').innerText = html;
+				//document.getElementById('app').innerHTML = html;
+			}
+
+			function add(){
+				let ch = document.getElementById('champs');
+				var html = 'Nom var ' + (ch.childElementCount / 4) + '<input type="text" id="nom" placeholder="nomPerso"><br>'
+					+ 'Desc <input type="text" id="desc" placeholder="Nom du perso"><br>';
+
+				document.getElementById('champs').innerHTML += html;
+			}
+		</script>
+	</head>
+	<body>
+
+			<div id="champs">
+				Nom var <input type="text" id="nom" placeholder="nomPerso"><br>
+				Desc <input type="text" id="desc" placeholder="Nom du perso"><br>
+			</div>
+			<a href="#" onClick="add()">Ajouter champ</a>
+			<br/>
+			Format <textarea type="textarea" id="format" placeholder="var $nomPersos$ = {et: $nomPersos$}"></textarea><br>
+			<button type="button" onClick="cree();">Generate</button>
+	
+		<code id="gen"></code>
+		<hr>
+		Appercu :
+		<br>
+		<div id="app"></div>
+	</body>
+</html>

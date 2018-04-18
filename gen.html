@@ -1,14 +1,14 @@
 <html>
 	<head>
-	
+
 		<script>
-			
+
 			function gen(){
 				var nv = document.getElementById("nomV").value;
 				var nc = document.getElementById("nomC").value;
 				var e = document.getElementById("et").value;
 				var i = document.getElementById("img").value;
-			
+
 				document.getElementById("obj").innerHTML += 'var ' + nv + ' = '
 					+ '{'
   						+ 'nom: "' + nc + '",<br>'
@@ -16,10 +16,10 @@
 						+ 'img: "' + i + '",<br>'
 					+ '} <br>';
 			}
-			
+
 			
 		</script>
-	
+
 	</head>
 	<body>
 		<form onsubmit="gen();">
@@ -27,7 +27,7 @@
 			Nom carte <input type="text" id="nomC" placeholder="(kami) Altan sama"><br>
 			Etoiles <input type="text" id="et" placeholder="4"><br>
 			URL Image <input type="text" id="img" placeholder="http://tu.pue"><br>
-		
+
 			<button type="button" onClick="gen();">Generate</button>
 		</form>
 			<br>

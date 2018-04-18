@@ -21,11 +21,12 @@ function pull(et){
 function refIris(){
 	document.getElementById('iris').textContent = iris;
 }
+var price = 40;
 function invoke(btn, nb){
-	if(iris - (25 * nb) < 0){
+	if(iris - (price * nb) < 0){
 		alert("Not enough Iris my brudah");
 	}else{
-		iris -= (25 * nb);
+		iris -= (price * nb);
 		refIris();
 		btn.disabled = true;
 		var max = 2;
